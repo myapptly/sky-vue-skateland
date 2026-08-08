@@ -14,13 +14,13 @@ export default function Home() {
   />
 </Link> 
           <nav className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0 text-white font-semibold"> 
-            <Link href="/plan-visit" className="hover:text-yellow-300">Plan Visit</Link>
-            <Link href="/birthday-parties" className="hover:text-yellow-300">Birthday Parties</Link>
-            <Link href="/stem-field-trips" className="hover:text-yellow-300">STEM Field Trips</Link>
-            <Link href="/events" className="hover:text-yellow-300">Events</Link>
-            <Link href="/our-story" className="hover:text-yellow-300">Our Story</Link>
+            <Link href="https://skyvueskateland.com/plan-visit/" className="hover:text-yellow-300">Plan Visit</Link>
+            <Link href="https://skyvueskateland.com/roller-skating-party/" className="hover:text-yellow-300">Birthday Parties</Link>
+            <Link href="https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/" className="hover:text-yellow-300">STEM Field Trips</Link>
+            <Link href="https://skyvueskateland.com/calendar/" className="hover:text-yellow-300">Events</Link>
+            <Link href="https://skyvueskateland.com/about-sky-vue-skateland/" className="hover:text-yellow-300">Our Story</Link>
             <a href="https://skyvueskateland.com/blog/" className="hover:text-yellow-300">Blog</a> 
-            <Link href="/contact" className="hover:text-yellow-300">Contact Us</Link>
+            <Link href="https://skyvueskateland.com/contact-sky-vue-skateland/" className="hover:text-yellow-300">Contact Us</Link>
           </nav>
         </div>
       </header>
@@ -39,10 +39,10 @@ export default function Home() {
             Family-owned and operated roller skating, birthday parties, and wholesome community fun since 1958! Featuring our classic hardwood floor, awesome music, and innovative STEM field trips.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/plan-visit" className="bg-yellow-400 hover:bg-yellpw-500 text-black font-bold px-6 py-3 rounded-lg shadow">
+            <Link href="https://skyvueskateland.com/plan-visit/" className="bg-yellow-400 hover:bg-yellpw-500 text-black font-bold px-6 py-3 rounded-lg shadow">
               Plan Your Visit
             </Link>
-            <Link href="/birthday-parties" className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg shadow">
+            <Link href="https://skyvueskateland.com/roller-skating-party/" className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg shadow">
               Book a Birthday Party
             </Link>
           </div>
@@ -61,7 +61,6 @@ export default function Home() {
             </p>
             <Link href="/plan-visit" className="text-blue-600 font-semibold hover:underline">View Hours & Pricing &rarr;</Link>
           </div>
-
           <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
             <h3 className="text-xl font-bold text-blue-900 mb-2">Birthday Parties</h3>
             <p className="text-gray-600 mb-4">
