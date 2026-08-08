@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ShareButton from './ShareButton';
 
 export default function Home() {
   return (
@@ -51,6 +52,7 @@ export default function Home() {
             <Link href="https://skyvueskateland.com/roller-skating-party/" className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg shadow">
               Book a Birthday Party
             </Link>
+           <ShareButton/>    
           </div>
         </div>
       </section>
