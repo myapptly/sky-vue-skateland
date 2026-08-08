@@ -4,6 +4,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       {/* Header & Navigation Menu */}
+      <div className="bg-red-600 text-white text-center font-bold py-2 px-4">
+  <a href="tel:2524427418" className="hover:text-yellow-300">
+    CALL (252) 442-7418
+  </a>
+</div> 
+
       <header className="border-b border-gray-200 sticky top-0 bg-blue-700 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
           <Link href="/" className="flex-shrink-0">
