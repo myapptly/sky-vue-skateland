@@ -4,36 +4,45 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       {/* Header & Navigation Menu */}
-      <header className="border-b border-gray-200 sticky top-0 bg-white z-50">
+      <header className="border-b border-gray-200 sticky top-0 bg-blue-700 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-2xl font-bold tracking-tight text-blue-900">
-            Sky-Vue Skateland
-          </div>
-          <nav className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0 text-sm font-semibold text-gray-700">
-            <Link href="/plan-visit" className="hover:text-blue-600">Plan Visit</Link>
-            <Link href="/birthday-parties" className="hover:text-blue-600">Birthday Parties</Link>
-            <Link href="/stem-field-trips" className="hover:text-blue-600">STEM Field Trips</Link>
-            <Link href="/events" className="hover:text-blue-600">Events</Link>
-            <Link href="/our-story" className="hover:text-blue-600">Our Story</Link>
-            <Link href="/contact" className="hover:text-blue-600">Contact Us</Link>
+          <Link href="/" className="flex-shrink-0">
+  <img
+    src="/sky-vue-logo.png"
+    alt="Sky-Vue Skateland"
+    className="h-26 md:h-30 w-auto"
+  />
+</Link> 
+          <nav className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0 text-white font-semibold"> 
+            <Link href="/plan-visit" className="hover:text-yellow-300">Plan Visit</Link>
+            <Link href="/birthday-parties" className="hover:text-yellow-300">Birthday Parties</Link>
+            <Link href="/stem-field-trips" className="hover:text-yellow-300">STEM Field Trips</Link>
+            <Link href="/events" className="hover:text-yellow-300">Events</Link>
+            <Link href="/our-story" className="hover:text-yellow-300">Our Story</Link>
+            <a href="https://skyvueskateland.com/blog/" className="hover:text-yellow-300">Blog</a> 
+            <Link href="/contact" className="hover:text-yellow-300">Contact Us</Link>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section optimized for Google SEO */}
-      <section className="bg-blue-900 text-white py-16 px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+          {/* Hero Section optimized for Google SEO */}
+<section className="relative overflow-hidden text-white py-16 px-4 text-center">
+  <video autoPlay muted loop playsInline poster="/sky-vue-hero.jpg" className="absolute inset-0 h-full w-full object-cover">
+  <source src="/sky-vue-hero.mp4" type="video/mp4" />
+</video>
+ <div className="absolute inset-0 bg-black/20"></div> 
+  <div className="relative z-10 max-w-4xl mx-auto">
+    <h1 className="text-4xl md:text-5xl font-extrabold mb-4"> 
             Welcome to Sky-Vue Skateland in Rocky Mount, NC
           </h1>
           <p className="text-lg md:text-xl mb-8 text-blue-100">
             Family-owned and operated roller skating, birthday parties, and wholesome community fun since 1958! Featuring our classic hardwood floor, awesome music, and innovative STEM field trips.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/plan-visit" className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold px-6 py-3 rounded-lg shadow">
+            <Link href="/plan-visit" className="bg-yellow-400 hover:bg-yellpw-500 text-black font-bold px-6 py-3 rounded-lg shadow">
               Plan Your Visit
             </Link>
-            <Link href="/birthday-parties" className="bg-white hover:bg-gray-100 text-blue-900 font-bold px-6 py-3 rounded-lg shadow">
+            <Link href="/birthday-parties" className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg shadow">
               Book a Birthday Party
             </Link>
           </div>
