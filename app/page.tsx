@@ -67,22 +67,27 @@ export default function Home() {
             <p className="text-gray-600 mb-4">
               Check out our public skating hours, admission rates, skate rentals (regular, speed, and inline), and dress code guidelines.
             </p>
-            <Link href="/plan-visit" className="text-blue-600 font-semibold hover:underline">View Hours & Pricing &rarr;</Link>
+            <Link href="https://skyvueskateland.com/plan-visit/" className="text-blue-600 font-semibold">
+              View Hours & Pricing →
+            </Link> 
           </div>
           <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
             <h3 className="text-xl font-bold text-blue-900 mb-2">Birthday Parties</h3>
             <p className="text-gray-600 mb-4">
               Kid-tested and Mom-approved! Let us handle the party details with private table setups, music, and unforgettable roller-skating fun.
             </p>
-            <Link href="/birthday-parties" className="text-blue-600 font-semibold hover:underline">Explore Party Packages &rarr;</Link>
-          </div>
-
+            <Link
+  href="https://skyvueskateland.com/birthday-parties-rocky-mount-nc/roller-skating-party/"
+  className="text-blue-600 font-semibold">
+  Explore Party Packages →
+</Link>
+</div> 
           <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
             <h3 className="text-xl font-bold text-blue-900 mb-2">STEM Field Trips</h3>
             <p className="text-gray-600 mb-4">
               An engaging, hands-on educational experience for schools and youth organizations across eastern North Carolina combining physics and motion.
             </p>
-            <Link href="/stem-field-trips" className="text-blue-600 font-semibold hover:underline">Learn About STEM Trips &rarr;</Link>
+            <Link href="https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/" className= "text-blue-600 font-semibold hover:underline">Learn About STEM Trips &rarr;</Link>
           </div>
         </div>
 
@@ -100,7 +105,12 @@ export default function Home() {
               <p className="text-gray-600 text-sm mb-4">
                 Discover our special schedules, themed music nights, and ways to keep kids active and rolling all month long.
               </p>
-              <span className="text-sm font-semibold text-blue-900">Read Monthly Update</span>
+              <a
+  href="https://skyvueskateland.com/blog/"
+  className="text-sm font-semibold text-blue-900 hover:underline"
+>
+  Read Monthly Update →
+</a> 
             </article>
 
             <article className="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
@@ -109,8 +119,12 @@ export default function Home() {
               <p className="text-gray-600 text-sm mb-4">
                 A look back at our summer sessions, special group bookings, and celebrating local families on the rink.
               </p>
-              <span className="text-sm font-semibold text-blue-900">Read Monthly Update</span>
-            </article>
+<a
+  href="https://skyvueskateland.com/blog/"
+  className="text-sm font-semibold text-blue-900 hover:underline"
+>
+  Read Monthly Update →
+</a>             </article>
 
             <article className="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
               <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">June 2026</span>
@@ -118,8 +132,12 @@ export default function Home() {
               <p className="text-gray-600 text-sm mb-4">
                 Celebrating our community support, local milestones, and gearing up for high-energy weekend skating sessions.
               </p>
-              <span className="text-sm font-semibold text-blue-900">Read Monthly Update</span>
-            </article>
+<a
+  href="https://skyvueskateland.com/blog/"
+  className="text-sm font-semibold text-blue-900 hover:underline"
+>
+  Read Monthly Update →
+</a>             </article>
           </div>
         </section>
 
