@@ -5,11 +5,33 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       {/* Header & Navigation Menu */}
-      <div className="bg-red-600 text-white text-center font-bold py-2 px-4">
-  <a href="tel:2524427418" className="hover:text-yellow-300">
-    CALL (252) 442-7418
-  </a>
-</div> 
+      <div className="bg-red-600 text-white py-3 px-4">
+  <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-sm font-semibold">
+   
+    <a href="tel:2524427418" className="hover:text-yellow-300">
+      CALL (252) 442-7418
+    </a>
+
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=13734+US+Hwy+64+Alt+W+Rocky+Mount+NC+27801"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-yellow-300 text-center"
+    >
+      📍 13734 US Hwy 64 Alt W, Rocky Mount, NC 27801 — Get Directions
+    </a>
+
+    <div className="flex items-center gap-3">
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https%3A%2F%2Fsky-vue-skateland.vercel.app"
+        alt="QR code to share the Sky-Vue app"
+        className="w-16 h-16 bg-white p-1 rounded"
+      />
+      <ShareButton />
+    </div>
+
+  </div>
+</div>
 
       <header className="border-b border-gray-200 sticky top-0 bg-blue-700 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
