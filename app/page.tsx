@@ -95,8 +95,12 @@ export default function Home() {
         <section className="border-t border-gray-200 pt-12">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold text-blue-900">Monthly News & Family Plans</h2>
-            <Link href="/events" className="text-blue-600 font-semibold hover:underline">View All Events</Link>
-          </div>
+<a
+  href="https://skyvueskateland.com/calendar/"
+  className="text-blue-600 font-semibold hover:underline"
+>
+  View All Events
+</a>           </div>
          
           <div className="grid md:grid-cols-3 gap-6">
             <article className="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
