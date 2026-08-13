@@ -21,12 +21,20 @@ export default function Home() {
       📍 13734 US Hwy 64 Alt W, Rocky Mount, NC 27801 — Get Directions
     </a>
 
-    <div className="flex items-center gap-3">
-      <img
-        src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https%3A%2F%2Fsky-vue-skateland.vercel.app"
-        alt="QR code to share the Sky-Vue app"
-        className="w-16 h-16 bg-white p-1 rounded"
-      />
+    <div className="flex flex-col md:flex-row items-center gap-4">
+      <div className="flex flex-col items-center gap-3">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https%3A%2F%2Fsky-vue-skateland.vercel.app"
+          alt="QR code to share the Sky-Vue app"
+          className="w-16 h-16 bg-white p-1 rounded"
+        />
+        <div className="text-white text-center">
+          <p className="font-bold text-sm mb-2">Add Sky-Vue Skateland to Your Home Screen</p>
+          <p className="text-xs mb-1"><span className="font-semibold">Android:</span> Open the app in Chrome, tap the three-dot menu ⋮, then choose Add to Home screen or Install app.</p>
+          <p className="text-xs mb-2"><span className="font-semibold">iPhone:</span> Open the app in Safari, tap the Share button, then choose Add to Home Screen.</p>
+          <p className="text-xs font-semibold">Once added, open Sky-Vue anytime from the icon on your phone.</p>
+        </div>
+      </div>
       <ShareButton />
     </div>
 
