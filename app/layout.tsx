@@ -23,7 +23,28 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <div
+          style={{
+            padding: "10px 16px 14px",
+            textAlign: "center",
+            background: "#111827",
+            color: "#9ca3af",
+            fontSize: "11px",
+          }}
+        >
+          Built by{" "}
+          <a
+            href="https://www.myapptly.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#facc15", fontWeight: 700, textDecoration: "none" }}
+          >
+            APPTLY
+          </a>
+        </div>
+      </body>
     </html>
   );
 }
