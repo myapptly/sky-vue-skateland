@@ -1,188 +1,267 @@
 import Link from 'next/link';
 import ShareButton from './ShareButton';
 
+const directionsUrl =
+  'https://www.google.com/maps/search/?api=1&query=13734+US+Hwy+64+Alt+W+Rocky+Mount+NC+27801';
+
+const quickActions = [
+  {
+    label: 'Hours & Pricing',
+    detail: 'See the current skating schedule and admission information.',
+    href: 'https://skyvueskateland.com/hours-pricing/',
+    accent: 'bg-yellow-400 text-black hover:bg-yellow-500',
+  },
+  {
+    label: 'What’s Happening',
+    detail: 'Check current events, special skates and family activities.',
+    href: 'https://skyvueskateland.com/calendar/',
+    accent: 'bg-red-600 text-white hover:bg-red-700',
+  },
+  {
+    label: 'Birthday Parties',
+    detail: 'See party options and start planning a celebration.',
+    href: 'https://skyvueskateland.com/birthday-parties-rocky-mount-nc/roller-skating-party/',
+    accent: 'bg-blue-700 text-white hover:bg-blue-800',
+  },
+  {
+    label: 'STEM Field Trips',
+    detail: 'Explore hands-on educational trips for schools and groups.',
+    href: 'https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/',
+    accent: 'bg-blue-700 text-white hover:bg-blue-800',
+  },
+  {
+    label: 'Call Sky-Vue',
+    detail: 'Talk directly with the rink about parties, groups or questions.',
+    href: 'tel:2524427418',
+    accent: 'bg-red-600 text-white hover:bg-red-700',
+  },
+  {
+    label: 'Get Directions',
+    detail: 'Open directions to Sky-Vue Skateland in Rocky Mount.',
+    href: directionsUrl,
+    accent: 'bg-yellow-400 text-black hover:bg-yellow-500',
+  },
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
-      {/* Header & Navigation Menu */}
-      <div className="bg-red-600 text-white py-3 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-sm font-semibold">
+      <div className="bg-red-600 text-white px-4 py-3">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-bold md:justify-between">
           <a href="tel:2524427418" className="hover:text-yellow-300">
             CALL (252) 442-7418
           </a>
-
           <a
-            href="https://www.google.com/maps/search/?api=1&query=13734+US+Hwy+64+Alt+W+Rocky+Mount+NC+27801"
+            href={directionsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-yellow-300 text-center"
+            className="text-center hover:text-yellow-300"
           >
-            📍 13734 US Hwy 64 Alt W, Rocky Mount, NC 27801 — Get Directions
+            📍 13734 US Hwy 64 Alt W, Rocky Mount, NC
           </a>
-
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <div className="flex flex-col items-center gap-3">
-              <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https%3A%2F%2Fsky-vue-skateland.vercel.app"
-                alt="QR code to share the Sky-Vue app"
-                className="w-16 h-16 bg-white p-1 rounded"
-              />
-              <div className="text-white text-center">
-                <p className="font-bold text-sm mb-2">Add Sky-Vue Skateland to Your Home Screen</p>
-                <p className="text-xs mb-1"><span className="font-semibold">Android:</span> Open the app in Chrome, tap the three-dot menu ⋮, then choose Add to Home screen or Install app.</p>
-                <p className="text-xs mb-2"><span className="font-semibold">iPhone:</span> Open the app in Safari, tap the Share button, then choose Add to Home Screen.</p>
-                <p className="text-xs font-semibold">Once added, open Sky-Vue anytime from the icon on your phone.</p>
-              </div>
-            </div>
-            <ShareButton />
-          </div>
+          <ShareButton />
         </div>
       </div>
 
-      <header className="border-b border-gray-200 sticky top-0 bg-blue-700 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+      <header className="sticky top-0 z-50 border-b border-blue-800 bg-blue-700 shadow-sm">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between px-4 py-3 md:flex-row">
           <Link href="/" className="flex-shrink-0">
             <img
               src="/sky-vue-logo.png"
               alt="Sky-Vue Skateland"
-              className="h-26 md:h-30 w-auto"
+              className="h-24 w-auto md:h-28"
             />
           </Link>
-          <nav className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0 text-white font-semibold">
-            <Link href="https://skyvueskateland.com/plan-visit/" className="hover:text-yellow-300">Plan Visit</Link>
-            <Link href="https://skyvueskateland.com/roller-skating-party/" className="hover:text-yellow-300">Birthday Parties</Link>
-            <Link href="https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/" className="hover:text-yellow-300">STEM Field Trips</Link>
-            <Link href="https://skyvueskateland.com/calendar/" className="hover:text-yellow-300">Events</Link>
-            <Link href="https://skyvueskateland.com/about-sky-vue-skateland/" className="hover:text-yellow-300">Our Story</Link>
-            <a href="https://skyvueskateland.com/blog/" className="hover:text-yellow-300">Blog</a>
-            <Link href="https://skyvueskateland.com/contact-sky-vue-skateland/" className="hover:text-yellow-300">Contact Us</Link>
+          <nav className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-semibold text-white md:mt-0">
+            <a href="https://skyvueskateland.com/plan-visit/" className="hover:text-yellow-300">Plan Visit</a>
+            <a href="https://skyvueskateland.com/hours-pricing/" className="hover:text-yellow-300">Hours</a>
+            <a href="https://skyvueskateland.com/calendar/" className="hover:text-yellow-300">Events</a>
+            <a href="https://skyvueskateland.com/birthday-parties-rocky-mount-nc/roller-skating-party/" className="hover:text-yellow-300">Parties</a>
+            <a href="https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/" className="hover:text-yellow-300">STEM</a>
+            <a href="https://skyvueskateland.com/blog/" className="hover:text-yellow-300">News</a>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section optimized for Google SEO */}
-      <section className="relative overflow-hidden text-white py-16 px-4 text-center">
-        <video autoPlay muted loop playsInline poster="/sky-vue-hero.jpg" className="absolute inset-0 h-full w-full object-cover">
+      <section className="relative overflow-hidden px-4 py-16 text-center text-white md:py-20">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/sky-vue-hero.jpg"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
           <source src="/sky-vue-hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Welcome to Sky-Vue Skateland in Rocky Mount, NC
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-blue-100">
-            Family-owned and operated roller skating, birthday parties, and wholesome community fun since 1958! Featuring our classic hardwood floor, awesome music, and innovative STEM field trips.
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 mx-auto max-w-4xl">
+          <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.2em] text-yellow-300">
+            The Place to Skate Since 1958
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="https://skyvueskateland.com/plan-visit/" className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-6 py-3 rounded-lg shadow">
-              Plan Your Visit
-            </Link>
-            <Link href="https://skyvueskateland.com/roller-skating-party/" className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg shadow">
-              Book a Birthday Party
-            </Link>
-            <ShareButton />
+          <h1 className="mb-4 text-4xl font-extrabold md:text-5xl">
+            Sky-Vue Skateland
+          </h1>
+          <p className="mx-auto mb-8 max-w-3xl text-lg text-blue-50 md:text-xl">
+            Family roller skating, birthday parties, STEM field trips and wholesome community fun in Rocky Mount, North Carolina.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href="https://skyvueskateland.com/hours-pricing/"
+              className="rounded-lg bg-yellow-400 px-6 py-3 font-bold text-black shadow hover:bg-yellow-500"
+            >
+              Hours & Pricing
+            </a>
+            <a
+              href="https://skyvueskateland.com/calendar/"
+              className="rounded-lg bg-red-600 px-6 py-3 font-bold text-white shadow hover:bg-red-700"
+            >
+              See What’s Happening
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Main Content Sections for SEO & Text Transparency */}
-      <main className="max-w-6xl mx-auto px-4 py-12 space-y-16">
-        {/* Quick Overview Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-xl font-bold text-blue-900 mb-2">Plan Your Visit</h3>
-            <p className="text-gray-600 mb-4">
-              Check out our public skating hours, admission rates, skate rentals (regular, speed, and inline), and dress code guidelines.
+      <main className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+        <section>
+          <div className="mb-7 text-center">
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-red-600">Quick Access</p>
+            <h2 className="text-3xl font-extrabold text-blue-900">What do you want to do?</h2>
+            <p className="mx-auto mt-2 max-w-2xl text-gray-600">
+              Get to the information families use most without hunting through menus.
             </p>
-            <Link href="https://skyvueskateland.com/plan-visit/" className="text-blue-600 font-semibold">
-              View Hours & Pricing →
-            </Link>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-xl font-bold text-blue-900 mb-2">Birthday Parties</h3>
-            <p className="text-gray-600 mb-4">
-              Kid-tested and Mom-approved! Let us handle the party details with private table setups, music, and unforgettable roller-skating fun.
-            </p>
-            <Link
-              href="https://skyvueskateland.com/birthday-parties-rocky-mount-nc/roller-skating-party/"
-              className="text-blue-600 font-semibold"
-            >
-              Explore Party Packages →
-            </Link>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {quickActions.map((action) => (
+              <a
+                key={action.label}
+                href={action.href}
+                target={action.href.startsWith('http') ? '_blank' : undefined}
+                rel={action.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className={`rounded-2xl p-5 shadow-sm transition-transform hover:-translate-y-0.5 ${action.accent}`}
+              >
+                <h3 className="text-xl font-extrabold">{action.label}</h3>
+                <p className="mt-2 text-sm opacity-90">{action.detail}</p>
+                <p className="mt-4 text-sm font-bold">Open →</p>
+              </a>
+            ))}
           </div>
+        </section>
 
-          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-xl font-bold text-blue-900 mb-2">STEM Field Trips</h3>
-            <p className="text-gray-600 mb-4">
-              An engaging, hands-on educational experience for schools and youth organizations across eastern North Carolina combining physics and motion.
-            </p>
-            <Link href="https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/" className="text-blue-600 font-semibold hover:underline">
-              Learn About STEM Trips →
-            </Link>
-          </div>
-        </div>
-
-        {/* Live Sky-Vue updates: evergreen links to content Denise already maintains */}
-        <section className="border-t border-gray-200 pt-12">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-3 mb-8">
+        <section className="rounded-3xl border border-blue-100 bg-blue-50 p-6 md:p-8">
+          <div className="mb-7 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-sm font-bold text-red-600 uppercase tracking-wider mb-2">Always Current</p>
-              <h2 className="text-3xl font-bold text-blue-900">What&apos;s Happening at Sky-Vue</h2>
-              <p className="text-gray-600 mt-2 max-w-2xl">
-                See the latest skating sessions, special events, family activities and updates directly from Sky-Vue.
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider text-red-600">Live From Sky-Vue</p>
+              <h2 className="text-3xl font-extrabold text-blue-900">Right Now at the Rink</h2>
+              <p className="mt-2 max-w-2xl text-gray-700">
+                These links use Sky-Vue’s own website as the source of truth, so current schedules, events and announcements stay under Sky-Vue’s control.
               </p>
             </div>
             <a
-              href="https://skyvueskateland.com/calendar/"
-              className="text-blue-600 font-semibold hover:underline whitespace-nowrap"
+              href="https://skyvueskateland.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-blue-700 hover:underline"
             >
-              View Current Events →
+              Visit Full Website →
             </a>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <article className="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
-              <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">Current Schedule</span>
-              <h3 className="text-lg font-bold text-gray-900 mt-1 mb-2">Events & Skating Sessions</h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Check Sky-Vue&apos;s live calendar for upcoming public sessions, special events and family activities.
+          <div className="grid gap-5 md:grid-cols-3">
+            <article className="rounded-2xl bg-white p-6 shadow-sm">
+              <span className="text-xs font-bold uppercase tracking-wider text-red-600">Current Schedule</span>
+              <h3 className="mt-2 text-xl font-bold text-blue-900">Hours & Admission</h3>
+              <p className="mt-2 text-sm text-gray-600">
+                Check the current public skating schedule, seasonal hours, admission and rental information.
               </p>
-              <a href="https://skyvueskateland.com/calendar/" className="text-sm font-semibold text-blue-900 hover:underline">
+              <a href="https://skyvueskateland.com/hours-pricing/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
+                Check Current Hours →
+              </a>
+            </article>
+
+            <article className="rounded-2xl bg-white p-6 shadow-sm">
+              <span className="text-xs font-bold uppercase tracking-wider text-red-600">Current Events</span>
+              <h3 className="mt-2 text-xl font-bold text-blue-900">What’s Happening</h3>
+              <p className="mt-2 text-sm text-gray-600">
+                Find upcoming special skates, family events, promotions and other activities on Sky-Vue’s live calendar.
+              </p>
+              <a href="https://skyvueskateland.com/calendar/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
                 View Live Calendar →
               </a>
             </article>
 
-            <article className="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
-              <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">Latest News</span>
-              <h3 className="text-lg font-bold text-gray-900 mt-1 mb-2">News From Sky-Vue</h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Read the latest stories, announcements and updates published by Sky-Vue Skateland.
+            <article className="rounded-2xl bg-white p-6 shadow-sm">
+              <span className="text-xs font-bold uppercase tracking-wider text-red-600">Latest Update</span>
+              <h3 className="mt-2 text-xl font-bold text-blue-900">News From Sky-Vue</h3>
+              <p className="mt-2 text-sm text-gray-600">
+                Read Sky-Vue’s newest announcement or monthly update directly from the rink.
               </p>
-              <a href="https://skyvueskateland.com/blog/" className="text-sm font-semibold text-blue-900 hover:underline">
-                Read Latest Updates →
-              </a>
-            </article>
-
-            <article className="border border-gray-200 rounded-lg p-5 bg-white shadow-sm">
-              <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">Plan Ahead</span>
-              <h3 className="text-lg font-bold text-gray-900 mt-1 mb-2">Hours, Pricing & Visit Info</h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Get Sky-Vue&apos;s current hours, admission information, skate rental details and visit guidelines.
-              </p>
-              <a href="https://skyvueskateland.com/plan-visit/" className="text-sm font-semibold text-blue-900 hover:underline">
-                Plan Your Visit →
+              <a href="https://skyvueskateland.com/blog/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
+                Read Latest Update →
               </a>
             </article>
           </div>
         </section>
+
+        <section>
+          <div className="mb-7 text-center">
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-red-600">More Ways to Roll</p>
+            <h2 className="text-3xl font-extrabold text-blue-900">Make Sky-Vue Part of the Family Routine</h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <a href="https://skyvueskateland.com/birthday-parties-rocky-mount-nc/roller-skating-party/" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-red-300">
+              <h3 className="text-xl font-bold text-blue-900">Birthday Parties</h3>
+              <p className="mt-2 text-gray-600">Plan an active, family-friendly birthday at the rink.</p>
+              <p className="mt-4 font-bold text-red-600">See Party Options →</p>
+            </a>
+
+            <a href="https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-blue-300">
+              <h3 className="text-xl font-bold text-blue-900">STEM Field Trips</h3>
+              <p className="mt-2 text-gray-600">Bring science to life with motion, physics and skating.</p>
+              <p className="mt-4 font-bold text-blue-700">Explore STEM Trips →</p>
+            </a>
+
+            <a href="https://skyvueskateland.com/plan-visit/membership/" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-yellow-300">
+              <h3 className="text-xl font-bold text-blue-900">Sky-Vue Crew Membership</h3>
+              <p className="mt-2 text-gray-600">See membership benefits for families and frequent skaters.</p>
+              <p className="mt-4 font-bold text-blue-700">Membership Details →</p>
+            </a>
+          </div>
+        </section>
+
+        <section className="overflow-hidden rounded-3xl bg-blue-900 text-white shadow-lg">
+          <div className="grid gap-8 p-7 md:grid-cols-[auto_1fr] md:items-center md:p-9">
+            <div className="mx-auto rounded-2xl bg-white p-3">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fsky-vue-skateland.vercel.app"
+                alt="QR code to open the Sky-Vue app"
+                className="h-36 w-36 md:h-40 md:w-40"
+              />
+            </div>
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wider text-yellow-300">Keep Sky-Vue in Your Pocket</p>
+              <h2 className="mt-2 text-3xl font-extrabold">Add Sky-Vue to Your Home Screen</h2>
+              <p className="mt-3 max-w-2xl text-blue-100">
+                Open Sky-Vue anytime for fast access to current hours, events, parties, directions and more.
+              </p>
+              <div className="mt-5 grid gap-3 text-sm md:grid-cols-2">
+                <p className="rounded-xl bg-blue-800 p-4"><strong>Android:</strong> Open in Chrome, tap ⋮, then choose Add to Home screen or Install app.</p>
+                <p className="rounded-xl bg-blue-800 p-4"><strong>iPhone:</strong> Open in Safari, tap Share, then choose Add to Home Screen.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 mt-16">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+      <footer className="mt-16 bg-gray-900 px-4 py-8 text-white">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-center text-sm text-gray-400 md:flex-row md:text-left">
           <p>&copy; {new Date().getFullYear()} Sky-Vue Skateland. 13734 US Hwy 64 Alt W, Rocky Mount, NC 27801.</p>
-          <p className="mt-4 md:mt-0">Phone: (252) 442-7418</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="tel:2524427418" className="hover:text-white">(252) 442-7418</a>
+            <a href="https://skyvueskateland.com/contact-sky-vue-skateland/" target="_blank" rel="noopener noreferrer" className="hover:text-white">Contact</a>
+          </div>
         </div>
       </footer>
     </div>
