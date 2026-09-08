@@ -4,7 +4,7 @@ service cloud.firestore {
     match /siteContent/{document=**} {
       allow read: if true;
       allow write: if request.auth != null
-        && request.auth.token.email == 'dwatkins@skyvueskateland.com'
+        && request.auth.token.email == 'denise@skyvueskateland.com'
         && request.auth.token.email_verified == true;
     }
     match /{document=**} { allow read, write: if false; }
