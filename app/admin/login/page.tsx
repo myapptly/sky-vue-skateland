@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { isOwnerEmail } from '@/lib/owner';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -14,9 +16,14 @@ export default function AdminLogin() {
     e.preventDefault();
     setError('');
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const credential = await signInWithEmailAndPassword(auth, email, password);
+      if (!isOwnerEmail(credential.user.email)) {
+        await auth.signOut();
+        setError('This account does not have owner access.');
+        return;
+      }
       router.push('/admin/dashboard');
-    } catch (err: any) {
+    } catch {
       setError('Invalid email or password. Please try again.');
     }
   };
@@ -59,6 +66,11 @@ export default function AdminLogin() {
             Sign In
           </button>
         </form>
+        <p className="mt-5 text-center text-sm">
+          <Link href="/admin/reset-password" className="font-semibold text-blue-700 hover:underline">
+            Set or reset your password
+          </Link>
+        </p>
       </div>
     </div>
   );
