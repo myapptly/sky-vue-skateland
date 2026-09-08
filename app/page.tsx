@@ -1,5 +1,25 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 import ShareButton from './ShareButton';
+
+const defaultContent = {
+  announcement: '',
+  hoursSummary: 'Check the current public skating schedule, seasonal hours, admission and rental information.',
+  hoursUrl: 'https://skyvueskateland.com/hours-pricing/',
+  eventsSummary: 'Find upcoming special skates, family events, promotions and other activities on Sky-Vue’s live calendar.',
+  eventsUrl: 'https://skyvueskateland.com/calendar/',
+  blogTitle: 'News From Sky-Vue',
+  blogSummary: 'Read Sky-Vue’s newest announcement or monthly update directly from the rink.',
+  blogUrl: 'https://skyvueskateland.com/blog/',
+  partiesSummary: 'Plan an active, family-friendly birthday at the rink.',
+  partiesUrl: 'https://skyvueskateland.com/birthday-parties-rocky-mount-nc/roller-skating-party/',
+  fieldTripsSummary: 'Bring science to life with motion, physics and skating.',
+  fieldTripsUrl: 'https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/',
+};
 
 const directionsUrl =
   'https://www.google.com/maps/search/?api=1&query=13734+US+Hwy+64+Alt+W+Rocky+Mount+NC+27801';
@@ -44,6 +64,14 @@ const quickActions = [
 ];
 
 export default function Home() {
+  const [content, setContent] = useState(defaultContent);
+
+  useEffect(() => {
+    getDoc(doc(db, 'siteContent', 'main')).then((snapshot) => {
+      if (snapshot.exists()) setContent({ ...defaultContent, ...snapshot.data() });
+    }).catch(() => undefined);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <div className="bg-red-600 text-white px-4 py-3">
@@ -82,6 +110,12 @@ export default function Home() {
           </nav>
         </div>
       </header>
+
+      {content.announcement && (
+        <div className="bg-yellow-300 px-4 py-4 text-center font-extrabold text-slate-950">
+          {content.announcement}
+        </div>
+      )}
 
       <section className="relative overflow-hidden px-4 py-16 text-center text-white md:py-20">
         <video
@@ -173,9 +207,9 @@ export default function Home() {
               <span className="text-xs font-bold uppercase tracking-wider text-red-600">Current Schedule</span>
               <h3 className="mt-2 text-xl font-bold text-blue-900">Hours & Admission</h3>
               <p className="mt-2 text-sm text-gray-600">
-                Check the current public skating schedule, seasonal hours, admission and rental information.
+                {content.hoursSummary}
               </p>
-              <a href="https://skyvueskateland.com/hours-pricing/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
+              <a href={content.hoursUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
                 Check Current Hours →
               </a>
             </article>
@@ -184,20 +218,20 @@ export default function Home() {
               <span className="text-xs font-bold uppercase tracking-wider text-red-600">Current Events</span>
               <h3 className="mt-2 text-xl font-bold text-blue-900">What’s Happening</h3>
               <p className="mt-2 text-sm text-gray-600">
-                Find upcoming special skates, family events, promotions and other activities on Sky-Vue’s live calendar.
+                {content.eventsSummary}
               </p>
-              <a href="https://skyvueskateland.com/calendar/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
+              <a href={content.eventsUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
                 View Live Calendar →
               </a>
             </article>
 
             <article className="rounded-2xl bg-white p-6 shadow-sm">
               <span className="text-xs font-bold uppercase tracking-wider text-red-600">Latest Update</span>
-              <h3 className="mt-2 text-xl font-bold text-blue-900">News From Sky-Vue</h3>
+              <h3 className="mt-2 text-xl font-bold text-blue-900">{content.blogTitle}</h3>
               <p className="mt-2 text-sm text-gray-600">
-                Read Sky-Vue’s newest announcement or monthly update directly from the rink.
+                {content.blogSummary}
               </p>
-              <a href="https://skyvueskateland.com/blog/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
+              <a href={content.blogUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-blue-700 hover:underline">
                 Read Latest Update →
               </a>
             </article>
@@ -211,15 +245,15 @@ export default function Home() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            <a href="https://skyvueskateland.com/birthday-parties-rocky-mount-nc/roller-skating-party/" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-red-300">
+            <a href={content.partiesUrl} target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-red-300">
               <h3 className="text-xl font-bold text-blue-900">Birthday Parties</h3>
-              <p className="mt-2 text-gray-600">Plan an active, family-friendly birthday at the rink.</p>
+              <p className="mt-2 text-gray-600">{content.partiesSummary}</p>
               <p className="mt-4 font-bold text-red-600">See Party Options →</p>
             </a>
 
-            <a href="https://skyvueskateland.com/school-trips-rocky-mount-nc/stem-trips/" target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-blue-300">
+            <a href={content.fieldTripsUrl} target="_blank" rel="noopener noreferrer" className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-blue-300">
               <h3 className="text-xl font-bold text-blue-900">STEM Field Trips</h3>
-              <p className="mt-2 text-gray-600">Bring science to life with motion, physics and skating.</p>
+              <p className="mt-2 text-gray-600">{content.fieldTripsSummary}</p>
               <p className="mt-4 font-bold text-blue-700">Explore STEM Trips →</p>
             </a>
 
@@ -261,6 +295,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <a href="tel:2524427418" className="hover:text-white">(252) 442-7418</a>
             <a href="https://skyvueskateland.com/contact-sky-vue-skateland/" target="_blank" rel="noopener noreferrer" className="hover:text-white">Contact</a>
+            <Link href="/admin/login" className="hover:text-white">Owner Login</Link>
           </div>
         </div>
       </footer>
