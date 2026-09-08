@@ -295,6 +295,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <a href="tel:2524427418" className="hover:text-white">(252) 442-7418</a>
             <a href="https://skyvueskateland.com/contact-sky-vue-skateland/" target="_blank" rel="noopener noreferrer" className="hover:text-white">Contact</a>
+            <Link href="/admin/login" className="hover:text-white">Owner Login</Link>
           </div>
         </div>
       </footer>
